@@ -1,0 +1,27 @@
+.active {
+  visibility: visible !important;
+  animation-name: activeNoti;
+  animation-duration: 200ms;
+}
+
+.notification__container {
+  position: absolute;
+  visibility: hidden;
+  transform-origin: top;
+  width: 350px;
+  height: fit-content;
+  max-height: 600px;
+  overflow-y: auto;
+  background: white;
+  color: black;
+  overflow-x: hidden;
+}
+
+@keyframes activeNoti {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}

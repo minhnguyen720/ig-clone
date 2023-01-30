@@ -1,0 +1,32 @@
+.actionbar__container {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.actionbar__container svg {
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all 200ms ease-in-out;
+}
+
+.actionbar__container p {
+  margin-right: 0.5rem;
+}
+
+.liked {
+  transition: all 200ms ease-in-out;
+  color: red;
+}
+
+.liked svg {
+  opacity: 1;
+}
+
+.liked:hover > svg {
+  transform: scale(1.2);
+}
+
+.actionbar__container svg:hover {
+  opacity: 1;
+}

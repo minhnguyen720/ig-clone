@@ -1,0 +1,30 @@
+.navbar__container {
+  width: 40vw;
+  margin: auto;
+}
+
+.navbar__items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar__notification {
+  position: relative;
+  z-index: 1;
+}
+
+#bell {
+  cursor: pointer;
+}
+
+.navbar__notification-dot {
+  position: absolute;
+  z-index: 2;
+  top: -7px;
+  left: 10px;
+  width: fit-content;
+  height: fit-content;
+  font-size: 9px;
+  color: red;
+}

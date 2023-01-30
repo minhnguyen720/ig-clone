@@ -1,0 +1,15 @@
+.notiItem__container {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  background-color: #989898;
+  border-bottom: 2px solid white;
+  cursor: pointer;
+}
+
+.notiItem__container:last-child {
+  border-bottom: none;
+}
+
+.unread {
+  background-color: #606060 !important;
+}

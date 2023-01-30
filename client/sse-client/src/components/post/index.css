@@ -1,0 +1,21 @@
+.post__container {
+  width: fit-content;
+  margin: auto;
+}
+
+.post__img-container {
+    width: 100%;
+}
+
+.author {
+  font-size: 1.25rem;
+}
+
+.post__img {
+    display: block;
+    width: 300px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+}

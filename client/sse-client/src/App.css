@@ -1,0 +1,11 @@
+.App {
+  width: 100vw;
+}
+
+.container {
+  margin: auto;
+  padding: 2rem;
+  background-color: #000f1c;
+  height: auto;
+  width: fit-content;
+}
