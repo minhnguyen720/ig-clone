@@ -10,15 +10,6 @@ function Navbar({ user }) {
     setIsOpened(!isOpened);
   };
 
-  // useEffect(() => {
-  //   const eventSource = new EventSource(
-  //     `http://localhost:3000/sse/event`,
-  //   );
-  //   eventSource.onmessage = ({ data }) => {
-  //     setNotiItems(JSON.parse(data));
-  //   };
-  // }, []);
-
   return (
     <div className="navbar__container">
       <div className="navbar__items">

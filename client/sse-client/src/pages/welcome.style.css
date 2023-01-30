@@ -1,0 +1,37 @@
+.welcome__container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.welcome__container input {
+  width: 90%;
+}
+
+#username,
+#password {
+  padding: 0.5rem;
+}
+
+.alert__container {
+  border: 1px solid #c01313;
+  background: #bb3737;
+  padding: 0.5rem;
+}
+
+.alert {
+  color: black;
+}
+
+.welcome__submit-btn {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  border: none;
+  outline: none;
+}

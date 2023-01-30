@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import useAuth from '../hooks/useAuth';
+import './welcome.style.css';
 
-function Welcome() {
+function Welcome({ authenticate, setAuthorized }) {
   const [input, setInput] = useState({ username: '', password: '' });
-  const { authenticate } = useAuth();
+  const [showMessage, setShowMessage] = useState(false);
 
   const handleChange = (e) => {
     setInput((prev) => {
@@ -15,17 +16,43 @@ function Welcome() {
   };
 
   const handleSubmit = async () => {
-    await authenticate(input.username, input.password);
+    try {
+      const status = await authenticate(input.username, input.password);
+      if (status === 401) {
+        setAuthorized(false);
+        setShowMessage(true);
+      } else if (status === 200 || status === 201) {
+        setAuthorized(true);
+        setShowMessage(false);
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
-    <div style={{ width: 'fit-content', margin: 'auto' }}>
-      <p>Username</p>
-      <input type="text" id="username" onChange={(e) => handleChange(e)} />
-      <p>Password</p>
-      <input type="password" id="password" onChange={(e) => handleChange(e)} />
-      <div style={{ display: 'block', marginTop: '8px' }}>
-        <button onClick={handleSubmit}>Submit</button>
+    <div className="welcome__container">
+      <div className="welcome__form">
+        {showMessage && (
+          <div className="alert__container">
+            <p className="alert">Wrong username or password</p>
+          </div>
+        )}
+        <div>
+          <p>Username</p>
+          <input type="text" id="username" onChange={(e) => handleChange(e)} />
+        </div>
+        <div>
+          <p>Password</p>
+          <input
+            type="password"
+            id="password"
+            onChange={(e) => handleChange(e)}
+          />
+        </div>
+        <button className="welcome__submit-btn" onClick={handleSubmit}>
+          Submit
+        </button>
       </div>
     </div>
   );
