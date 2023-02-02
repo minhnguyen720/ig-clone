@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { FaHeart } from 'react-icons/fa';
 import './index.css';
 import useAuth from '../../hooks/useAuth';
+import useCom from '../../hooks/useCom';
 
 function ActionBar({ postId, like, likedBy }) {
   const { user } = useAuth();
   const [liked, setLiked] = useState(false);
   const [likeAmt, setLikeAmt] = useState(like);
+  const { clientToServer, sendNotification } = useCom();
 
   useEffect(() => {
     const isLike = likedBy.filter((i) => {
@@ -48,6 +50,12 @@ function ActionBar({ postId, like, likedBy }) {
       headers: headersList,
     });
     setLiked(!liked);
+    // sendNotification();
+    clientToServer({
+      sender: user.id,
+      receiver: postId,
+      message: 'like',
+    });
   };
 
   return (

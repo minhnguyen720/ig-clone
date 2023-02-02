@@ -1,9 +1,11 @@
 import { useContext, useState } from 'react';
 import { AuthContext } from '../contexts/authContext';
+import useCom from './useCom';
 
 export default function useAuth() {
   const { user, setUser } = useContext(AuthContext);
   const [authorized, setAuthorized] = useState(false);
+  const { assign } = useCom();
 
   const authenticate = async (username, password) => {
     try {
@@ -26,6 +28,8 @@ export default function useAuth() {
       if (response.ok) {
         let data = await response.json();
         setUser(data);
+        console.log(data);
+        assign(data.id);
         setAuthorized(true);
       } else {
         setAuthorized(false);

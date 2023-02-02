@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import useAuth from '../hooks/useAuth';
 import './welcome.style.css';
 
 function Welcome({ authenticate, setAuthorized }) {
   const [input, setInput] = useState({ username: '', password: '' });
   const [showMessage, setShowMessage] = useState(false);
-
   const handleChange = (e) => {
     setInput((prev) => {
       return {
